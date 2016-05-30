@@ -1,3 +1,5 @@
+#add not_if dir.exist
+
 #1
 
 remote_file "/opt/thruk/libthruk_2.08-1_ubuntu14.04_amd64.deb" do
@@ -46,7 +48,14 @@ end
 
 
 dpkg_package "/opt/thruk/thruk-plugin-reporting_2.08_ubuntu14.04_amd64.deb" do
+  ignore_failure true
   action :install
+  notifies :run, "execute[install-plugin-deps]", :immediately
+end
+
+execute "install-plugin-deps" do
+  command "apt-get -yf install"
+  action :nothing
 end
 
 
@@ -58,5 +67,13 @@ end
 
 
 dpkg_package "/opt/thruk/thruk_2.08_ubuntu14.04_amd64.deb" do
+  ignore_failure true
   action :install
+  notifies :run, "execute[install-thruk-deps]", :immediately
 end
+
+execute "install-thruk-deps" do
+  command "apt-get -yf install"
+  action :nothing
+end
+
