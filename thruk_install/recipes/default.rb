@@ -9,7 +9,7 @@
 #end
 #
 
-include_recipe 'gdebi'
+include_recipe 'gdebi::default'
 
 
 remote_file "/opt/thruk" do
