@@ -1,4 +1,3 @@
-#add not_if dir.exist
 directory '/opt/thruk' do
   owner 'root'
   group 'root'
@@ -17,7 +16,7 @@ end
 
 
 execute "libthruk" do
-  command "sudo gdebi  --option=APT::Get::force-yes='true' --option=APT::Get::Assume-Yes='true' -n libthruk_2.08-1_ubuntu14.04_amd64.deb"
+  command "sudo gdebi  --option=APT::Get::force-yes='true' --option=APT::Get::Assume-Yes='true' -n /opt/thruk/libthruk_2.08-1_ubuntu14.04_amd64.deb"
   action :nothing
 end
 
@@ -40,7 +39,7 @@ remote_file "/opt/thruk/thruk-base_2.08_ubuntu14.04_amd64.deb" do
 end
 
 execute "thruk-base" do
-  command "sudo gdebi  --option=APT::Get::force-yes='true' --option=APT::Get::Assume-Yes='true' -n thruk-base_2.08_ubuntu14.04_amd64.deb"
+  command "sudo gdebi  --option=APT::Get::force-yes='true' --option=APT::Get::Assume-Yes='true' -n /opt/thruk/thruk-base_2.08_ubuntu14.04_amd64.deb"
   action :nothing
 end
 
@@ -67,7 +66,7 @@ end
 
 
 execute "thruk-plugin" do
-  command "sudo gdebi  --option=APT::Get::force-yes='true' --option=APT::Get::Assume-Yes='true' -n thruk-plugin-reporting_2.08_ubuntu14.04_amd64.deb"
+  command "sudo gdebi  --option=APT::Get::force-yes='true' --option=APT::Get::Assume-Yes='true' -n /opt/thruk/thruk-plugin-reporting_2.08_ubuntu14.04_amd64.deb"
   action :nothing
 end
 
@@ -91,7 +90,7 @@ end
 
 
 execute "thruk" do
-  command "sudo gdebi  --option=APT::Get::force-yes='true' --option=APT::Get::Assume-Yes='true' -n thruk_2.08_ubuntu14.04_amd64.deb"
+  command "sudo gdebi  --option=APT::Get::force-yes='true' --option=APT::Get::Assume-Yes='true' -n /opt/thruk/thruk_2.08_ubuntu14.04_amd64.deb"
   action :nothing
 end
 
