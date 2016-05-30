@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__), 'gdebi_provider')
 
 class Chef
   class Resource
-    class GdebiPackage < Chef::Resource::Package
+    class GdebiPackage < ::Chef::Resource::Package
       
       def initialize(name, run_context=nil)
         super
