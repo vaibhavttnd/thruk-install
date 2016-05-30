@@ -36,6 +36,7 @@ end
 remote_file "/opt/thruk/thruk-base_2.08_ubuntu14.04_amd64.deb" do
   source "http://download.thruk.org/pkg/v2.08/ubuntu14.04/amd64/thruk-base_2.08_ubuntu14.04_amd64.deb"
   mode 0644
+  notifies :run, "execute[thruk-base]", :immediately
 end
 
 execute "thruk-base" do
@@ -62,6 +63,7 @@ end
 remote_file "/opt/thruk/thruk-plugin-reporting_2.08_ubuntu14.04_amd64.deb" do
   source "http://download.thruk.org/pkg/v2.08/ubuntu14.04/amd64/thruk-plugin-reporting_2.08_ubuntu14.04_amd64.deb"
   mode 0644
+  notifies :run, "execute[thruk-plugin]", :immediately
 end
 
 
@@ -86,6 +88,7 @@ end
 remote_file "/opt/thruk/thruk_2.08_ubuntu14.04_amd64.deb" do
   source "http://download.thruk.org/pkg/v2.08/ubuntu14.04/amd64/thruk_2.08_ubuntu14.04_amd64.deb"
   mode 0644
+  notifies :run, "execute[thruk]", :immediately
 end
 
 
