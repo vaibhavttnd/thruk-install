@@ -8,7 +8,7 @@ class Chef
       def initialize(name, run_context=nil)
         super
         @resource_name = :gdebi_package
-        @provider = Chef::Provider::Package::Gdebi
+        @provider = ::Chef::Provider::Package::Gdebi
       end
       
     end
