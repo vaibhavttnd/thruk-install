@@ -1,3 +1,3 @@
 name "thruk_install"
 
-depends "gdebi"
+#depends "gdebi"
